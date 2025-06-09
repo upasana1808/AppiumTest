@@ -17,12 +17,14 @@ public class HelloWorldAppTest {
 
     @BeforeAll
     public static void setUp() throws MalformedURLException {
+    	String apkPath = "D:\\...OldComp\\Upasana\\...Training\\Appium\\HelloWorldApp\\app\\build\\outputs\\apk\\debug\\app-debug.apk";
         UiAutomator2Options options = new UiAutomator2Options()
                 .setUdid("emulator-5554") // Replace with your device ID
                 .setAppPackage("com.example.helloworldapp")
                 .setAppActivity(".MainActivity")
                 .setAutomationName("UiAutomator2")
-                .setNoReset(false); // Changed to false to reset app state
+                .setNoReset(false) // Changed to false to reset app state
+                .setApp(apkPath);
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
